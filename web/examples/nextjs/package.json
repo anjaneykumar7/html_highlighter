@@ -2,7 +2,7 @@
   "name": "html-highlighter-nextjs-example",
   "private": true,
   "scripts": {
-    "pack-lib": "npm pack ../.. --pack-destination . && npm install ./html-highlighter-web-0.1.0.tgz",
+    "pack-lib": "rm -f html-highlighter-web-*.tgz && npm install ./$(npm pack ../.. --pack-destination . | tail -1)",
     "dev": "next dev -p 3100",
     "build": "next build",
     "start": "next start -p 3100"
@@ -10,7 +10,7 @@
   "dependencies": {
     "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
-    "html-highlighter-web": "file:html-highlighter-web-0.1.0.tgz",
+    "html-highlighter-web": "file:html-highlighter-web-0.1.1.tgz",
     "next": "^16.4.5",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",

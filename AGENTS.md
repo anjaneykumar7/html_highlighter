@@ -89,6 +89,12 @@ rebuild (stop and `flutter run` again).
     then the maintainer runs `flutter pub publish` (it needs their Google
     sign-in). A published version can't be deleted. `.pubignore` keeps
     `web/` and the agent docs out of the package.
+    **One version on both sides:** the web module is on npm as
+    `html-highlighter-web` and always carries the same version as the Flutter
+    package. Bump `pubspec.yaml` and `web/package.json` together (`cd web &&
+    npm version X.Y.Z --no-git-tag-version`); a test fails if they differ. The
+    maintainer publishes both: `flutter pub publish`, then `npm publish`
+    in `web/` (npm needs 2FA).
 
 ## Gotchas
 

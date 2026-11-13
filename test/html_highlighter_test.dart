@@ -43,6 +43,18 @@ String _engineCore() {
 }
 
 void main() {
+  // pub.dev (html_highlighter) and npm (html-highlighter-web) release together.
+  // web/ isn't in the pub archive, so this only runs in the repository.
+  test('Flutter package and web module share one version', () {
+    final pub = RegExp(r'^version:\s*(\S+)', multiLine: true)
+        .firstMatch(File('pubspec.yaml').readAsStringSync())!
+        .group(1);
+    final web = (jsonDecode(File('web/package.json').readAsStringSync())
+        as Map<String, dynamic>)['version'];
+    expect(web, pub,
+        reason: 'bump pubspec.yaml and web/package.json together');
+  }, skip: !File('web/package.json').existsSync());
+
   group('engine', () {
     test('ships as one script', () {
       expect(

@@ -7,6 +7,8 @@
   `highlighter.js`, `react.js` and `Highlighter.css`.
 - Docs: screenshots in the README and on pub.dev (`doc/images/`).
 - The blog is no longer part of the repository.
+- The web module is on npm as `html-highlighter-web`, at the same version
+  as this package (a test keeps `pubspec.yaml` and `web/package.json` equal).
 
 ## 0.1.0
 
