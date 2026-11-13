@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1
+
+- Docs: install from pub.dev only; removed the git install instructions and
+  the repository and issue tracker links.
+
 ## 0.1.0
 
 First version.

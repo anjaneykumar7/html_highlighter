@@ -45,14 +45,6 @@ platform.
 flutter pub add html_highlighter
 ```
 
-Or straight from the repository:
-
-```yaml
-dependencies:
-  html_highlighter:
-    git: https://github.com/anjaneykumar7/html_highlighter
-```
-
 The package depends on `webview_flutter` `^4.14.1`.
 
 ## Platform setup
