@@ -1,16 +1,12 @@
 # Changelog
 
-## 0.1.2
-
-- Docs: GitHub repository and issue tracker links are back (the repository
-  is public); the README links the engine (`assets/highlighter.js`) and the
-  web module's `highlighter.js`, `react.js` and `Highlighter.css` on GitHub.
-- The blog is no longer part of the repository.
-
 ## 0.1.1
 
-- Docs: install from pub.dev only; removed the git install instructions and
-  the repository and issue tracker links.
+- Docs: install with `flutter pub add`; the README links the source on
+  GitHub, the engine (`assets/highlighter.js`) and the web module's
+  `highlighter.js`, `react.js` and `Highlighter.css`.
+- Docs: screenshots in the README and on pub.dev (`doc/images/`).
+- The blog is no longer part of the repository.
 
 ## 0.1.0
 

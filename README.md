@@ -10,6 +10,8 @@ Drop it into any Flutter app that shows HTML in a WebView.
 
 Source: [github.com/anjaneykumar7/html_highlighter](https://github.com/anjaneykumar7/html_highlighter)
 
+![A phone, a tablet and a laptop showing the same coloured highlights](https://raw.githubusercontent.com/anjaneykumar7/html_highlighter/main/doc/images/cover.jpg)
+
 **On the web** (plain JS, React, Next.js), use [`web/`](https://github.com/anjaneykumar7/html_highlighter/blob/main/web/README.md): the same
 features and the same saved JSON, so highlights move between app and site.
 
@@ -31,9 +33,13 @@ features and the same saved JSON, so highlights move between app and site.
 
 ## Platforms
 
+![The playground on Android, the Add to notes popup on Android, an iPhone and an iPad, with the same highlights](https://raw.githubusercontent.com/anjaneykumar7/html_highlighter/main/doc/images/devices.jpg)
+
+*The playground app: Android, the "Add to notes" popup on Android, iPhone, and iPad with the saved JSON.*
+
 | Platform | Status |
 |---|---|
-| iOS / iPadOS | Supported; tested on an iPad simulator with touch |
+| iOS / iPadOS | Supported; tested on iPhone and iPad simulators with touch |
 | macOS | Supported; tested with mouse and trackpad |
 | Android | Supported; tested on an Android 35 emulator (Pixel 7) with touch |
 | Web, Windows, Linux | Not supported by the Flutter package: `webview_flutter` can't run JavaScript or post messages back to Dart there. For web sites, use [`web/`](https://github.com/anjaneykumar7/html_highlighter/blob/main/web/README.md) |
@@ -363,6 +369,8 @@ framework-agnostic `highlighter.js` plus `react.js` (`HighlightableHtml`,
 removal, merging, restore, `clear()`, the on/off switches, the touch guard and
 the no-selection-across-media rule) and saves the same JSON. It is
 independent of the Flutter code: no Dart, no WebView. See its README.
+
+![The React demo with five coloured highlights, the saved JSON and the Add to notes popup](https://raw.githubusercontent.com/anjaneykumar7/html_highlighter/main/doc/images/web-react.jpg)
 
 Files: [`highlighter.js`](https://github.com/anjaneykumar7/html_highlighter/blob/main/web/highlighter.js) ·
 [`react.js`](https://github.com/anjaneykumar7/html_highlighter/blob/main/web/react.js) ·
