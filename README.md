@@ -8,7 +8,9 @@ JSON, colour included.
 
 Drop it into any Flutter app that shows HTML in a WebView.
 
-**On the web** (plain JS, React, Next.js), use [`web/`](web/README.md): the same
+Source: [github.com/anjaneykumar7/html_highlighter](https://github.com/anjaneykumar7/html_highlighter)
+
+**On the web** (plain JS, React, Next.js), use [`web/`](https://github.com/anjaneykumar7/html_highlighter/blob/main/web/README.md): the same
 features and the same saved JSON, so highlights move between app and site.
 
 ## Contents
@@ -34,7 +36,7 @@ features and the same saved JSON, so highlights move between app and site.
 | iOS / iPadOS | Supported; tested on an iPad simulator with touch |
 | macOS | Supported; tested with mouse and trackpad |
 | Android | Supported; tested on an Android 35 emulator (Pixel 7) with touch |
-| Web, Windows, Linux | Not supported by the Flutter package: `webview_flutter` can't run JavaScript or post messages back to Dart there. For web sites, use [`web/`](web/README.md) |
+| Web, Windows, Linux | Not supported by the Flutter package: `webview_flutter` can't run JavaScript or post messages back to Dart there. For web sites, use [`web/`](https://github.com/anjaneykumar7/html_highlighter/blob/main/web/README.md) |
 
 `HighlightHost` lets you plug in your own renderer if you ever need another
 platform.
@@ -86,7 +88,7 @@ The package depends on `webview_flutter` `^4.14.1`.
 - Images and iframes (a video, a PDF) can sit inside a container; the text
   around them highlights as usual. An iframe's own content is a separate
   document and can't be highlighted.
-- One engine, `assets/highlighter.js`, runs in the page. When the user
+- One engine, [`assets/highlighter.js`](https://github.com/anjaneykumar7/html_highlighter/blob/main/assets/highlighter.js), runs in the page. When the user
   highlights or removes something it sends the **whole** current list of
   highlights to Dart.
 - Each highlight (a "model") has an owner, `userType`. Only `student`
@@ -354,13 +356,18 @@ See `CONTEXT.md` for how it works and `AGENTS.md` for rules when changing it.
 
 ## Web version
 
-[`web/`](web/README.md) is a separate JavaScript module for web pages: a
+[`web/`](https://github.com/anjaneykumar7/html_highlighter/blob/main/web/README.md) is a separate JavaScript module for web pages: a
 framework-agnostic `highlighter.js` plus `react.js` (`HighlightableHtml`,
 `useHighlighter`, `"use client"` for Next.js). It has every feature above
 (colours, owners, the "Add to notes" popup, press-and-hold and right-click
 removal, merging, restore, `clear()`, the on/off switches, the touch guard and
 the no-selection-across-media rule) and saves the same JSON. It is
 independent of the Flutter code: no Dart, no WebView. See its README.
+
+Files: [`highlighter.js`](https://github.com/anjaneykumar7/html_highlighter/blob/main/web/highlighter.js) ·
+[`react.js`](https://github.com/anjaneykumar7/html_highlighter/blob/main/web/react.js) ·
+[`Highlighter.css`](https://github.com/anjaneykumar7/html_highlighter/blob/main/web/Highlighter.css) ·
+[`highlighter.d.ts`](https://github.com/anjaneykumar7/html_highlighter/blob/main/web/highlighter.d.ts).
 
 With a mouse, the web version also opens the popup on **hover** and removes a
 highlight on **click** (`popupOnHover`, `clickToRemove`); taps behave as in
@@ -372,21 +379,6 @@ cd web && npm install && npm test
 ```
 
 
-## Blog
-
-[`.blog/`](.blog/index.html) is a small static blog about the package (Tailwind
-via CDN, no build) with two posts: `flutter-package.html` (the Flutter
-package on Android, iOS and macOS: features, per-platform set-up, saved
-format, lessons from real devices; its conclusion links to the web post) and
-`nextjs.html` (the web module in React and Next.js, with a live demo).
-Screenshots are real Android emulator, iPhone and iPad simulator and browser
-captures; the cover images were generated with the Codex CLI from them. Serve
-it from the package root so the demo can load `web/`:
-
-```bash
-python3 -m http.server 8766   # then open http://localhost:8766/.blog/
-```
-
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](https://github.com/anjaneykumar7/html_highlighter/blob/main/LICENSE).

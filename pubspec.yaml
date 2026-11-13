@@ -2,7 +2,9 @@ name: html_highlighter
 description: >-
   Persistent, multi-colour text highlighting for HTML in a WebView on Android,
   iOS and macOS, with Add to notes, removal and restore from small JSON.
-version: 0.1.1
+version: 0.1.2
+repository: https://github.com/anjaneykumar7/html_highlighter
+issue_tracker: https://github.com/anjaneykumar7/html_highlighter/issues
 topics:
   - webview
   - highlight
