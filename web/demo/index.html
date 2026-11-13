@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>html-highlighter demo</title>
+</head>
+<body>
+  <main>
+    <div class="page" id="page"></div>
+    <aside>
+      <section>
+        <h3>Highlight colour</h3>
+        <div class="swatches" id="swatches"></div>
+      </section>
+      <section>
+        <label><input type="checkbox" id="enabled" checked> Highlighting enabled</label>
+        <label><input type="checkbox" id="popup" checked> Show "Add to notes"</label>
+        <div class="buttons" style="margin-top:8px">
+          <button id="reload">Reload page</button>
+          <button id="clear">clear()</button>
+        </div>
+      </section>
+      <section><h3>Saved highlights (<span id="count">0</span>)</h3><pre id="saved">[]</pre></section>
+      <section><h3>Notes</h3><ul class="log" id="notes"></ul></section>
+      <section><h3>Event log</h3><ul class="log" id="log"></ul></section>
+    </aside>
+  </main>
+  <script type="module">
+    import { createHighlighter, highlightContainer } from "../highlighter.js";
+    import { sections, palette, pageCss } from "./content.js";
+
+    const style = document.createElement("style");
+    style.textContent = pageCss;
+    document.head.appendChild(style);
+
+    const page = document.getElementById("page");
+    const titles = { question: "Question", explanation: "Explanation", article: "Atrioventricular node" };
+    let saved = [];
+    let pen = palette[0];
+    let hl;
+
+    const log = (msg) => {
+      const li = document.createElement("li");
+      li.textContent = `${new Date().toLocaleTimeString()}  ${msg}`;
+      document.getElementById("log").prepend(li);
+    };
+    const showSaved = () => {
+      document.getElementById("saved").textContent = JSON.stringify(saved, null, 2);
+      document.getElementById("count").textContent = saved.length;
+    };
+
+    function build() {
+      if (hl) hl.destroy();
+      page.innerHTML = sections
+        .map((s) => `<h4>${titles[s.type]}</h4>` + highlightContainer(s))
+        .join("");
+      hl = createHighlighter(page, {
+        color: pen,
+        enabled: document.getElementById("enabled").checked,
+        showAddToNote: document.getElementById("popup").checked,
+        highlights: saved,
+        onChange(models, info) {
+          saved = models;
+          showSaved();
+          log(`${info.type}  models=${models.length}  ${info.model ? info.model.id.split("--")[1] : ""}`);
+        },
+        onAddToNote(note) {
+          const li = document.createElement("li");
+          li.textContent = note.text;
+          document.getElementById("notes").prepend(li);
+          log(`add to notes  "${note.text}"`);
+        },
+      });
+      window.hl = hl; // for poking at in the console
+      log(`page loaded  restored ${saved.length}`);
+    }
+
+    const swatches = document.getElementById("swatches");
+    palette.forEach((c) => {
+      const b = document.createElement("button");
+      b.title = c || "default";
+      if (c) b.style.background = c; else b.className = "none";
+      b.setAttribute("aria-pressed", String(c === pen));
+      b.onclick = () => {
+        pen = c;
+        hl.setColor(c);
+        [...swatches.children].forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+        log(`pen  ${c || "default"}`);
+      };
+      swatches.appendChild(b);
+    });
+    document.getElementById("enabled").onchange = (e) => { hl.setEnabled(e.target.checked); log(`enabled ${e.target.checked}`); };
+    document.getElementById("popup").onchange = (e) => { hl.setAddToNoteVisible(e.target.checked); log(`showAddToNote ${e.target.checked}`); };
+    document.getElementById("reload").onclick = () => build();
+    document.getElementById("clear").onclick = () => { hl.clear(); log("clear()  page only, saved list kept"); };
+
+    build();
+    showSaved();
+  </script>
+</body>
+</html>

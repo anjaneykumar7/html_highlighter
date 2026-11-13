@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": false,
+    "lib": ["DOM", "ES2020"],
+    "types": [],
+    "paths": {
+      "html-highlighter-web": ["./highlighter.d.ts"],
+      "html-highlighter-web/react": ["./react.d.ts"]
+    }
+  },
+  "files": ["test/types/usage.tsx"]
+}

@@ -1,0 +1,15 @@
+# A .pubignore replaces .gitignore for pub, so repeat the build output here.
+.dart_tool/
+build/
+pubspec.lock
+node_modules/
+.next/
+*.tgz
+
+# Not part of the Dart package
+web/
+AGENTS.md
+CLAUDE.md
+CONTEXT.md
+example/build/
+example/.dart_tool/

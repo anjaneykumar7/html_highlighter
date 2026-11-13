@@ -1,0 +1,22 @@
+# Dart / Flutter
+.dart_tool/
+.packages
+build/
+pubspec.lock
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Node
+node_modules/
+.next/
+*.tgz
+
+# Local tools and media (not part of the repo)
+.video/
+.claude/settings.local.json
+
+# Editors / OS
+.idea/
+*.iml
+.vscode/
+.DS_Store

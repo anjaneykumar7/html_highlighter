@@ -1,0 +1,37 @@
+name: html_highlighter
+description: >-
+  Persistent, multi-colour text highlighting for HTML in a WebView on Android,
+  iOS and macOS, with Add to notes, removal and restore from small JSON.
+version: 0.1.0
+repository: https://github.com/anjaneykumar7/html_highlighter
+issue_tracker: https://github.com/anjaneykumar7/html_highlighter/issues
+topics:
+  - webview
+  - highlight
+  - html
+  - text-selection
+  - notes
+
+platforms:
+  android:
+  ios:
+  macos:
+
+environment:
+  sdk: ">=3.1.3 <4.0.0"
+  flutter: ">=3.13.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  webview_flutter: ^4.14.1
+  webview_flutter_wkwebview: ^3.26.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  assets:
+    - assets/highlighter.js

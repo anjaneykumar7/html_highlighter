@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>html-highlighter React demo</title>
+  <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@19.3.1",
+        "react-dom/client": "https://esm.sh/react-dom@19.3.1/client?deps=react@19.3.1"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module">
+    import { createElement as h, StrictMode, useRef, useState } from "react";
+    import { createRoot } from "react-dom/client";
+    import { HighlightableHtml } from "../react.js";
+    import { sections, palette, pageCss } from "./content.js";
+
+    const style = document.createElement("style");
+    style.textContent = pageCss;
+    document.head.appendChild(style);
+
+    function App() {
+      const [saved, setSaved] = useState([]);
+      const [notes, setNotes] = useState([]);
+      const [color, setColor] = useState(palette[0]);
+      const [enabled, setEnabled] = useState(true);
+      const [popup, setPopup] = useState(true);
+      const [version, setVersion] = useState(0);
+      const ref = useRef(null);
+      window.highlighter = ref;
+
+      return h("main", null,
+        h("div", { className: "page" },
+          h("h4", null, "Rendered with <HighlightableHtml>"),
+          h(HighlightableHtml, {
+            key: version,
+            ref,
+            sections,
+            highlights: saved,
+            color,
+            enabled,
+            showAddToNote: popup,
+            onChange: (models) => setSaved(models),
+            onAddToNote: (note) => setNotes((n) => [note.text, ...n]),
+          })),
+        h("aside", null,
+          h("section", null,
+            h("h3", null, "Highlight colour"),
+            h("div", { className: "swatches" },
+              palette.map((c) => h("button", {
+                key: c || "none",
+                title: c || "default",
+                className: c ? "" : "none",
+                style: c ? { background: c } : undefined,
+                "aria-pressed": String(c === color),
+                onClick: () => setColor(c),
+              })))),
+          h("section", null,
+            h("label", null, h("input", { type: "checkbox", checked: enabled, onChange: (e) => setEnabled(e.target.checked) }), "Highlighting enabled"),
+            h("label", null, h("input", { type: "checkbox", checked: popup, onChange: (e) => setPopup(e.target.checked) }), 'Show "Add to notes"'),
+            h("div", { className: "buttons", style: { marginTop: 8 } },
+              h("button", { onClick: () => setVersion((v) => v + 1) }, "Remount (restore)"),
+              h("button", { onClick: () => ref.current.clear() }, "clear()"))),
+          h("section", null, h("h3", null, `Saved highlights (${saved.length})`), h("pre", null, JSON.stringify(saved, null, 2))),
+          h("section", null, h("h3", null, "Notes"), h("ul", { className: "log" }, notes.map((n, i) => h("li", { key: i }, n))))));
+    }
+
+    createRoot(document.getElementById("app")).render(h(StrictMode, null, h(App)));
+  </script>
+</body>
+</html>

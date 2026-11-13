@@ -1,0 +1,40 @@
+/* html-highlighter: styles for highlights and the "Add to notes" popup.
+ *
+ * Import once in your app, e.g. Next.js app/layout.tsx:
+ *   import "html-highlighter-web/Highlighter.css";
+ * and pass injectStyles: false so the script does not also add them.
+ * Override any rule after this file (e.g. .highlight-text-student).
+ * Keep in sync with DEFAULT_CSS in highlighter.js (a test checks).
+ */
+.highlight-text-student { background-color: yellow; }
+.highlight-text-admin { background-color: #e8e239; }
+[data-highlight-id] {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+.hl-off [data-highlight-type="highlight-range"], [data-highlight-type="highlight-range"].hl-off,
+[data-highlight-type="highlight-range"][data-highlighton="false"], .noselect {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+.hl-popup {
+  position: absolute;
+  z-index: 2147483000;
+  display: none;
+  padding: 6px;
+  border-radius: 8px;
+  background: #111;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35), 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+.hl-popup[data-open] { display: block; }
+.hl-popup button {
+  font: 600 13px/1.2 system-ui, -apple-system, sans-serif;
+  color: #111;
+  background: #fff;
+  border: 0;
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+}

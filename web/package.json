@@ -1,0 +1,52 @@
+{
+  "name": "html-highlighter-web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Persistent, multi-colour text highlighting for HTML in web pages, with React and Next.js bindings. Same saved format as the html_highlighter Flutter package.",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "./highlighter.js",
+  "module": "./highlighter.js",
+  "types": "./highlighter.d.ts",
+  "exports": {
+    ".": {
+      "types": "./highlighter.d.ts",
+      "default": "./highlighter.js"
+    },
+    "./react": {
+      "types": "./react.d.ts",
+      "default": "./react.js"
+    },
+    "./Highlighter.css": "./Highlighter.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "highlighter.js",
+    "highlighter.d.ts",
+    "react.js",
+    "react.d.ts",
+    "Highlighter.css"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "typecheck": "tsc -p tsconfig.json",
+    "demo": "python3 -m http.server 8765"
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "jsdom": "^30.1.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "typescript": "^7.0.2"
+  }
+}
