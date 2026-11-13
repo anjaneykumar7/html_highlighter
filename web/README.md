@@ -34,14 +34,12 @@ on the web and the other way round.
 
 ## Install
 
-It isn't published. Pack it and install the tarball:
-
 ```bash
-cd path/to/html_highlighter/web && npm pack
-cd your-app && npm install path/to/html-highlighter-web-0.1.0.tgz
+npm install html-highlighter-web
 ```
 
-Avoid `npm link` or a `file:` folder dependency: the folder's own
+To try local changes in an app, pack this folder (`npm pack`) and install the
+tarball. Avoid `npm link` or a `file:` folder dependency: the folder's own
 `node_modules` (React, used by the tests) would give your app a second copy
 of React.
 

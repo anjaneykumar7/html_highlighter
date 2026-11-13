@@ -1,8 +1,27 @@
 {
   "name": "html-highlighter-web",
   "version": "0.1.0",
-  "private": true,
   "description": "Persistent, multi-colour text highlighting for HTML in web pages, with React and Next.js bindings. Same saved format as the html_highlighter Flutter package.",
+  "keywords": [
+    "highlight",
+    "highlighter",
+    "text-selection",
+    "annotations",
+    "notes",
+    "react",
+    "nextjs"
+  ],
+  "license": "MIT",
+  "author": "AnjaneyKumar",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anjaneykumar7/html_highlighter.git",
+    "directory": "web"
+  },
+  "homepage": "https://github.com/anjaneykumar7/html_highlighter/tree/main/web#readme",
+  "bugs": {
+    "url": "https://github.com/anjaneykumar7/html_highlighter/issues"
+  },
   "type": "module",
   "sideEffects": [
     "*.css"

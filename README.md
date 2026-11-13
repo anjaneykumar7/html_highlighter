@@ -372,6 +372,12 @@ independent of the Flutter code: no Dart, no WebView. See its README.
 
 ![The React demo with five coloured highlights, the saved JSON and the Add to notes popup](https://raw.githubusercontent.com/anjaneykumar7/html_highlighter/main/doc/images/web-react.jpg)
 
+Install it from npm:
+
+```bash
+npm install html-highlighter-web
+```
+
 Files: [`highlighter.js`](https://github.com/anjaneykumar7/html_highlighter/blob/main/web/highlighter.js) ·
 [`react.js`](https://github.com/anjaneykumar7/html_highlighter/blob/main/web/react.js) ·
 [`Highlighter.css`](https://github.com/anjaneykumar7/html_highlighter/blob/main/web/Highlighter.css) ·
