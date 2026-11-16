@@ -210,7 +210,7 @@ Unlike the iOS WebView, a desktop browser shows a PDF or video iframe directly.
 npm install           # dev dependencies: jsdom, react, react-dom, typescript
 npm test              # node --test test/*.test.js
 npm run typecheck     # checks the .d.ts files against a TSX usage example
-npm run demo          # then open http://localhost:8765/demo/ (index.html, react.html)
+npm run demo          # then open http://localhost:8780/demo/ (index.html, react.html)
 ```
 
 The React demo loads React from esm.sh, so it needs a network connection.
