@@ -130,7 +130,7 @@ rebuild (stop and `flutter run` again).
   install with `--cache <some temp dir>` (or run `npm cache verify`).
 - `node --test test/` doesn't take a folder on Node 22; `npm test` uses
   `node --test test/*.test.js`.
-- The web demo is served by `.claude/launch.json` (`web-demo`, port 8765);
+- The web demo is served by `.claude/launch.json` (`web-demo`, port 8780);
   the React demo loads React from esm.sh. The Next.js example is
   `nextjs-example` (port 3100; run `npm run pack-lib && npm run build` in
   `web/examples/nextjs` first, after any library change).
